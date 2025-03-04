@@ -1,0 +1,1218 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho y alto */
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    max-width: 100%; /* Impide que el cuerpo y html se expandan más allá del ancho de la pantalla */
+    overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
+}
+
+/* Establecer la tipografía global */
+body {
+    font-family: 'Arial', Impact, Haettenschweiler, 'Arial Narrow Bold', Bold; /* Fuente por defecto para todo el cuerpo de la página */
+    font-size: 16px; /* Tamaño base del texto */
+    line-height: 1.5; /* Altura de línea para mejorar la legibilidad */
+    color: #333; /* Color del texto */
+    margin: 0; /* Elimina el margen predeterminado del body */
+}
+
+/* Estilos para el cuadro superior */
+.top-box {
+    width: 100%; /* Abarca todo el ancho de la página */
+    background-color: #3E016A;
+    color: white;
+    padding: 40px 20px; /* Más espacio de padding */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+    
+    border-bottom-left-radius: 50px; /* Borde inferior izquierdo redondeado */
+    border-bottom-right-radius: 50px; /* Borde inferior derecho redondeado */
+    
+    display: flex;
+    align-items: center; /* Alineación vertical */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilo del título dentro del cuadro superior */
+.top-box h1 {
+    font-size: 48px; /* Tamaño en píxeles */
+    margin: 0; /* Elimina márgenes extra */
+    padding-left: 40px; /* Espacio entre el borde izquierdo y el título */
+}
+
+
+
+/* Contenedor del encabezado dentro del cuadro superior */
+.header {
+    display: flex;
+    justify-content: space-between; /* Espacio entre el título y la barra de navegación */
+    align-items: center; /* Alinea verticalmente el contenido */
+    padding: 0 20px; /* Espaciado horizontal alrededor del encabezado */
+}
+
+/* Estilo para el título principal */
+.title {
+    font-size: 24px;
+    margin: 0;
+    color: #6A0DAD;
+}
+
+/* Ajustes para el contenedor de pestañas (barra de navegación) */
+.tab-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido dentro del contenedor */
+    align-items: center;
+    background-color: white; /* Fondo completamente blanco */
+    border-radius: 30px; /* Bordes redondeados en los extremos */
+    padding: 10px 20px; /* Espaciado interno para dar margen */
+    width: auto; /* Ajusta el ancho automáticamente */
+    position: absolute; /* Posiciona la barra de navegación */
+    right: 10px; /* Ajusta la posición a la derecha */
+    top: 10px; /* Ajusta la posición en la parte superior */
+    margin: 0; /* Elimina el margen */
+}
+
+/* Ajustes para los botones de las pestañas */
+.tab-buttons {
+    display: flex;
+    align-items: center;
+    margin: 0; /* Elimina el margen */
+}
+
+/* Ajustes para los enlaces de las pestañas */
+.tab-link {
+    background-color: transparent; /* Fondo transparente para los botones */
+    color: #6A0DAD; /* Color de texto morado oscuro */
+    border: none; /* Elimina el borde del botón */
+    padding: 10px 16px; /* Espaciado interno de los botones */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para el cambio de color de fondo y texto */
+    margin: 0; /* Elimina el margen entre los botones */
+    border-radius: 0; /* Asegura que no haya bordes redondeados en los botones */
+    font-weight: bold; /* Aplica negrita a los textos */
+}
+
+/* Al pasar el cursor por encima */
+.tab-link:hover {
+    background-color: #6A0DAD; /* Fondo morado oscuro al pasar el mouse */
+    color: white; /* Texto blanco al pasar el mouse */
+    border-radius: 15px; /* Añade bordes redondeados suaves al botón en hover */
+}
+
+/* Botón activo */
+.tab-link.active {
+    background-color: #6A0DAD; /* Color de fondo morado oscuro para la pestaña activa */
+    color: white; /* Texto blanco para la pestaña activa */
+    border-radius: 15px; /* Bordes redondeados suaves para la pestaña activa */
+    font-weight: bold; /* Mantiene el texto en negrita para la pestaña activa */
+}
+
+
+
+/* Estilo del video (mantén el que ya tienes) */
+video {
+    width: 50%; /* Mantén el ancho del video */
+    height: auto; /* Mantén la proporción del video */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 0; /* Sin margen para mantener la posición a la izquierda */
+    margin-left: 10%; /* Mueve el video hacia la izquierda (ajusta el valor a tu conveniencia) */
+}
+
+/* Contenedor de texto */
+.text-content {
+    width: 50%; /* Ocupa el 50% restante del contenedor */
+    text-align: center; /* Alinea el texto a la derecha */
+    margin-left: 20px; /* Añade espacio entre el video y el texto */
+}
+
+/* Estilo para el título principal */
+.tittle {
+    font-size: 36px; /* Tamaño del título principal */
+    text-align: center; /* Centra el título */
+    margin: 20px 0; /* Espacio superior e inferior */
+    color: #333; /* Color del texto */
+}
+
+/* Contenedor para el título y el texto */
+.text-container {
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    margin: 20px 0; /* Margen superior e inferior */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+}
+
+/* Estilo para los títulos */
+.tittle, .subtitulo {
+    font-size: 36px; /* Tamaño grande para el título */
+    font-weight: bold;
+    margin-bottom: 10px; /* Espacio entre el título y el texto */
+    color: #6a0dad; /* Color morado */
+    text-align: center; /* Centra el título */
+    display: block; /* Asegura que el título sea tratado como un bloque */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Estilo para los textos */
+.texto, .texto2 {
+    font-size: 18px; /* Tamaño del texto */
+    margin: 0 auto; /* Espacio lateral y centrar el texto */
+    line-height: 1.6; /* Espaciado entre líneas */
+    color: #000000; /* Color del texto */
+    max-width: 800px; /* Limita el ancho del texto para mejorar la legibilidad */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .tittle, .subtitulo {
+        font-size: 28px; /* Reduce el tamaño del título en pantallas pequeñas */
+    }
+
+    .texto, .texto2 {
+        font-size: 16px; /* Reduce el tamaño del texto en pantallas pequeñas */
+        max-width: 100%; /* Elimina la limitación de ancho en dispositivos pequeños */
+    }
+}
+
+
+/* Estilo para el subtítulo */
+.subtitulo {
+    font-size: 30px; /* Tamaño del subtítulo */
+    text-align: center; /* Centra el subtítulo */
+    margin: 20px 0; /* Espacio superior e inferior */
+    color: #333; /* Color del texto */
+}
+
+
+
+/* Contenedor que alinea el video y la descripción uno al lado del otro */
+.video-container {
+    display: flex; /* Alinea los elementos en fila (video y descripción) */
+    align-items: center; /* Centra verticalmente el contenido */
+    margin: 20px 0; /* Espacio entre el contenedor y otros elementos */
+}
+
+/* Estilo para el contenedor principal */
+#app {
+    text-align: center;
+}
+
+#home {
+    text-align: center; /* Centra todo el contenido dentro de este contenedor */
+
+}
+#home .title{
+    text-align: center;
+
+}
+
+#home button {
+    background-color: #6A0DAD;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Estilo para la sección de traducción */
+#translate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    padding: 20px;
+}
+
+#translate img {
+    max-width: 20%; /* Asegura que la imagen no exceda el ancho de la pantalla */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 40px; /* Ajusta el espacio desde el borde superior */
+}
+
+#translate h2 {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}
+
+#translate p {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Estilo para el contenedor de información centrado */
+.info-box {
+    background-color: black; /* Fondo negro en lugar de imagen */
+    color: white; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+
+    /* Ajustar el tamaño del cuadro */
+    width: 80%; /* Ajusta el ancho del rectángulo */
+    height: auto; /* Permite que el alto se ajuste dinámicamente al contenido */
+
+    /* Centrar el cuadro horizontalmente */
+    margin: 40px auto; /* 40px arriba y abajo, auto a los lados para centrar */
+
+    /* Evitar que toque los bordes de la pantalla */
+    box-sizing: border-box; /* Asegura que el padding esté incluido en el ancho total */
+
+    /* Usar flexbox para centrar contenido */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en una columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+/* Estilos para el botón morado */
+.comunicate {
+    background-color: #3E016A; /* Color de fondo morado */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 20px; /* Espacio superior entre el texto y el botón */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    font-size: 1rem; /* Tamaño del texto del botón */
+}
+
+.comunicate:hover {
+    background-color: #290046; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo general para el pie de página */
+footer {
+    background-color: #3E016A;
+    color: #fff;
+    padding: 20px;
+    text-align: left; /* Alinea el contenido a la izquierda */
+}
+
+/* Contenedor para el contenido del pie de página */
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Distribuye el contenido a los extremos */
+    flex-wrap: wrap; /* Asegura que el contenido se ajuste en pantallas más pequeñas */
+}
+
+/* Sección de contacto (a la izquierda) */
+.footer-section.contact {
+    flex: 1;
+}
+
+/* Sección de redes sociales y título de la app (a la derecha) */
+.footer-section.social-app {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinea el contenido a la derecha */
+    text-align: right;
+    flex: 1;
+}
+
+/* Título de la app */
+.footer-section.social-app h3 {
+    margin-bottom: 15px;
+}
+
+/* Enlaces de redes sociales */
+.social {
+    display: flex;
+    justify-content: flex-end; /* Alinea los iconos a la derecha */
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.social-icon img {
+    margin-right: 8px;
+}
+
+/* Estilo para el pie de página inferior */
+.footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Responsivo: ajusta en pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center; /* Centra el contenido en pantallas pequeñas */
+        text-align: center;
+    }
+
+    .footer-section.social-app {
+        align-items: center;
+    }
+
+    .social {
+        justify-content: center;
+    }
+}
+/* Estilo general para la sección 'Acerca de Nosotros' */
+#about-us {
+    padding: 20px;
+}
+/* Estilo para las tarjetas de Misión, Visión y Objetivo */
+.card {
+    border: 2px solid #6a1b9a; /* Borde morado */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: #6a1b9a;
+    display: inline-block;
+    width: calc(33.33% - 40px); /* Ajuste para tres tarjetas en una fila */
+    box-sizing: border-box;
+    color: #ffffff;
+    height: 400px; /* Altura fija */
+    vertical-align: top; /* Alinear todas las tarjetas en la parte superior */
+}
+.card img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.parrafo {
+    font-size: 16px;
+    overflow: hidden; /* Asegura que el texto no desborde */
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+/* Alineación de las tarjetas de Misión, Visión y Objetivo */
+#about-us .card {
+    display: inline-block;
+}
+/* Estilo para la sección 'Historia del proyecto' */
+.container .planeacion {
+    margin-top: 20px;
+}
+/* Estilo para las imágenes de los integrantes del equipo */
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 20px;
+}
+.image-container {
+    margin: 0 10px;
+}
+.image-container img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+}
+/* Estilo para el título 'Historia del proyecto' */
+.container h1, .container h2 {
+    text-align: center;
+    color: #6a1b9a; /* Color morado */
+}
+/* Estilo general para centrar todo el texto en .planeacion */
+.planeacion {
+    text-align: center;
+}
+/* Opcional: ajustar el ancho del contenedor y centrarlo */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* Estilo para los párrafos dentro de planeacion */
+.planeacion p {
+    text-align: justify;
+    margin: 0 auto;
+    max-width: 700px; /* Opcional, ajusta el ancho del texto para mejor legibilidad */
+}
+/* Contenedor del rectángulo morado */
+.images {
+    background-color: #6A0DAD; /* Color del rectángulo morado */
+    padding: 20px; /* Espacio interno */
+    margin: 0 auto; /* Centrar el rectángulo en la página */
+    max-width: 80%; /* Ocupa el ancho completo de la página */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
+    border-radius: 20px; /* Bordes redondeados */
+    display: flex;
+    justify-content: center; /* Centra las imágenes */
+    overflow: hidden; /* Elimina la barra de desplazamiento */
+    white-space: nowrap; /* Mantiene las imágenes en una sola línea */
+    height: 200px;
+}
+/* Contenedor de cada imagen */
+.image-container {
+    display: inline-block;
+    margin: 20px; /* Aumenta el espacio entre las imágenes */
+    text-align: center;
+    vertical-align: top;
+}
+/* Imagen circular con efecto de zoom */
+.image-container img {
+    width: 150px; /* Tamaño ajustado para mantener la forma circular */
+    height: 150px; /* Mantiene la imagen como un círculo */
+    border-radius: 50%; /* Hace que las imágenes sean perfectamente circulares */
+    transition: transform 0.3s;
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor circular */
+}
+/* Efecto de zoom al pasar el cursor */
+.image-container img:hover {
+    transform: scale(1.1); /* Efecto de zoom suave */
+}
+/* Nombre debajo de cada imagen */
+.nombre {
+    margin-top: 8px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+/* Estilo para las imágenes */
+.image-container img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor circular */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+}
+/* Efecto de zoom al pasar el cursor */
+.image-container:hover img {
+    transform: scale(1.1); /* Ajusta el valor para el tamaño del zoom */
+}
+/* Estilos para el título */
+#home .tittle {
+    position: relative;
+    text-align: center;
+    font-size: 24px; /* Ajusta el tamaño del texto si es necesario */
+    color:#3E016A; /* Color del título */
+    z-index: 10; /* Asegúrate de que el texto esté delante de la flecha */
+}
+
+#home .tittle::after {
+    content: ''; /* Crear un pseudo-elemento vacío */
+    position: absolute;
+    width: 15%; /* Ocupa todo el ancho del texto */
+    height: 40px; /* Ocupa toda la altura del texto */
+    bottom: 0; /* Ubica la flecha justo debajo del texto */
+    left: 0; /* Mantén la flecha alineada con el texto */
+    z-index: -1; /* Coloca la flecha detrás del texto */
+}
+
+/* Estilos para el subtítulo */
+#home .subtitulo {
+    position: relative;
+    text-align: center;
+    font-size: 32px; /* Ajusta el tamaño del texto */
+    color: #6a1b9a; /* Color del subtítulo */
+    z-index: 10; /* Asegúrate de que el texto esté delante de la flecha */
+}
+
+#home .subtitulo::after {
+    content: '';
+    position: absolute;
+    width: 15%; /* Ocupa todo el ancho del texto */
+    height: 40px; /* Ajusta el largo (altura) de la flecha */
+    bottom: 0; /* Ubica la flecha justo debajo del texto */
+    right: 0; /* Alinea la flecha con el texto */
+    z-index: -1; /* Coloca la flecha detrás del texto */
+}
+
+
+/* Si quieres ajustar la posición del texto */
+#home .texto, #home .texto2 {
+    position: relative;
+    z-index: 10; /* Mantén el texto por delante de las flechas */
+}
+.card {
+    transition: transform 0.3s ease; /* Animación suave */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+}
+/* Estilos generales del footer */
+.footer {
+    background-color: #4a007e; /* Color morado oscuro */
+    color: #e0c3fc; /* Color claro para el texto */
+    padding: 40px 20px;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+}
+.footer-section h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+.footer-section p, .footer-section a {
+    color: #e0c3fc;
+    font-size: 14px;
+    line-height: 1.6;
+    text-decoration: none;
+}
+.footer-section a:hover {
+    color: #d1a3ff;
+}
+
+/* Línea divisoria */
+.footer-line {
+    border-top: 1px solid #7c43bd; /* Color para la línea divisoria */
+    margin-top: 20px;
+}
+
+/* Información inferior del pie de página */
+.footer-bottom {
+    text-align: center;
+    padding: 10px 20px;
+    color: #e0c3fc;
+    font-size: 14px;
+}
+.contact-info {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 14px;
+    color: #e0c3fc;
+    margin-top: 20px;
+}
+
+/* Estilos para el boletín */
+.newsletter {
+    display: flex;
+    flex-direction: column;
+}
+.newsletter input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #b07bec;
+    background-color: #320054;
+    color: #e0c3fc;
+    outline: none;
+    border-radius: 4px;
+}
+.newsletter button {
+    padding: 10px;
+    background-color: #7c43bd;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Estilos de redes sociales en formato 2x2 */
+.social {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Espacio entre los íconos */
+    justify-items: center; /* Centra los íconos dentro de las celdas */
+}
+.social-icon {
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+.social-icon img {
+    display: block;
+    margin: 0 auto 5px;
+    transition: transform 0.3s ease;
+}
+.social-icon:hover img {
+    transform: scale(1.1);
+}
+.social-icon span {
+    display: block;
+    font-weight: bold;
+}
+.social-icon:hover {
+    color: #bb86fc;
+    transform: scale(1.05);
+}
+
+
+/* Estilos generales del traductor */
+#translate {
+    text-align: center;
+    color:#3E016A;
+}
+
+/* Centrar la imagen traducida */
+#image-sing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para los botones e inputs */
+#convert-button, #letter-input, #mode-selector {
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+/* Botones redondos para grabar y detener */
+.rounded-button {
+    background-color: #3E016A;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.rounded-button:disabled {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
+
+/* Estilos para los textos y etiquetas */
+label, p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Contenedor de los controles de cámara */
+#camera-controls {
+    margin-top: 20px;
+}
+/* Estilo para el contenedor */
+#app {
+    text-align: center; /* Centra el contenido del contenedor */
+    margin: 20px; /* Espacio alrededor del contenedor */
+}
+
+/* Estilo para la imagen */
+#app img {
+    width: 80%; /* Ajusta el tamaño de la imagen (puedes cambiar el porcentaje según necesites) */
+    max-width: 300px; /* Limita el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+/* Estilo para el párrafo */
+#app p {
+    font-size: 1rem; /* Tamaño del texto */
+    color: #333; /* Color del texto (puedes cambiarlo según tus necesidades) */
+    line-height: 1.5; /* Altura de línea para mejor legibilidad */
+    max-width: 600px; /* Limita el ancho del párrafo */
+    margin: 0 auto; /* Centra el párrafo */
+}
+/* Estilo general para el contenedor de la cámara */
+#translate-mode {
+    text-align: center; /* Centra el contenido */
+    margin-top: 20px; /* Espacio arriba */
+}
+
+/* Estilo para el video */
+#camera-feed {
+    width: 80%; /* Ancho del video */
+    max-width: 640px; /* Ancho máximo */
+    border: 2px solid #6a0dad; /* Borde morado */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Espacio debajo del video */
+}
+
+/* Estilo para los botones */
+#camera-controls {
+    display: flex; /* Alinea los botones en fila */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 20px; /* Espacio entre los botones */
+}
+
+/* Estilo para los botones redondeados */
+.rounded-button {
+    background-color: #6a0dad; /* Color morado */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición para el hover */
+}
+
+.rounded-button:hover {
+    background-color: #5e0c8e; /* Color al pasar el mouse */
+}
+
+.rounded-button:disabled {
+    background-color: #ccc; /* Color para el botón deshabilitado */
+    cursor: not-allowed; /* Cursor para el botón deshabilitado */
+}
+/* Estilo para el cuadro de texto en el modo 'Texto a Voz' */
+#voz-mode {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#voice-text-input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    border: 2px solid #6a1b9a; /* Color morado */
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el botón 'Convertir a voz' */
+#text-to-voice-button {
+    background-color: #6a1b9a; /* Morado */
+    color: #fff; /* Blanco */
+    border: none;
+    padding: 15px 30px; /* Tamaño más grande */
+    font-size: 18px; /* Tamaño de letra grande */
+    font-weight: bold; /* Negrita */
+    border-radius: 30px; /* Bordes redondeados */
+    cursor: pointer;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+#text-to-voice-button:hover {
+    background-color: #4a1170; /* Un morado más oscuro para el hover */
+}
+/* Estilo para el cuadro de texto en el modo 'Escribir' */
+#write-mode {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#letter-input {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    border: 2px solid #6a1b9a; /* Color morado */
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el botón 'Convertir' en el modo 'Escribir' */
+#convert-button {
+    background-color: #6a1b9a; /* Morado */
+    color: #fff; /* Blanco */
+    border: none;
+    padding: 15px 30px; /* Tamaño más grande */
+    font-size: 18px; /* Tamaño de letra grande */
+    font-weight: bold; /* Negrita */
+    border-radius: 30px; /* Bordes redondeados */
+    cursor: pointer;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón 'Convertir' */
+#convert-button:hover {
+    background-color: #4a1170; /* Un morado más oscuro para el hover */
+}
+.cuadro-morado {
+    position: relative; /* Mantiene el cuadro en el flujo normal del documento */
+    margin-top: 20px; /* Espacio entre el texto y el cuadro morado */
+    width: 50%; /* Ancho inicial */
+    height: 300px; /* Altura del cuadro */
+    background-color: #6A0DAD; /* Color del cuadro */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+    transition: width 0.5s ease; /* Transición suave para el cambio de ancho */
+
+    /* Bordes redondeados en el lado derecho */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    /* Bordes rectos en el lado izquierdo */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+/* Estilos generales para el cuadro morado */
+.cuadro-morado {
+    background-color: #5a2a82; /* Fondo morado */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Mantiene el cuadro en el flujo normal del documento */
+    margin-top: 20px; /* Espacio entre el texto y el cuadro morado */
+    height: 300px; /* Altura del cuadro */
+    transition: width 0.5s ease; /* Transición suave para el cambio de ancho */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Estilos generales para el cuadro morado */
+.cuadro-morado {
+    background-color: #5a2a82; /* Fondo morado */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Asegura que todo el contenido esté centrado */
+    position: relative; /* Mantiene el cuadro en el flujo normal del documento */
+    margin-top: 20px; /* Espacio entre el texto y el cuadro morado */
+    height: 300px; /* Altura del cuadro */
+    transition: width 0.5s ease; /* Transición suave para el cambio de ancho */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Estilos generales para el cuadro morado */
+.cuadro-morado {
+    background-color: #5a2a82; /* Fondo morado */
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Asegura que todo el contenido esté centrado */
+    position: relative; /* Mantiene el cuadro en el flujo normal del documento */
+    margin-top: 20px; /* Espacio entre el texto y el cuadro morado */
+    height: 300px; /* Altura del cuadro */
+    transition: width 0.5s ease; /* Transición suave para el cambio de ancho */
+    overflow: hidden; /* Oculta el desbordamiento del contenido */
+}
+
+/* Estilos para el cuadro morado al hacer hover */
+.cuadro-morado:hover {
+    width: 90%; /* Ancho cuando el ratón está sobre el cuadro */
+}
+
+/* Estilos para el carrusel */
+.carrusel {
+    display: flex; /* Usar flexbox para alinear las imágenes */
+    justify-content: center; /* Centrar imágenes horizontalmente */
+    align-items: center; /* Centra verticalmente las imágenes */
+    overflow: hidden; /* Ocultar imágenes que se salgan del contenedor */
+    padding: 15%;
+    width: 80%;
+    max-width: 100%; /* Limita el ancho del carrusel para centrarlo */
+    margin-bottom: 100px; /* Espacio en la parte inferior del carrusel */
+}
+
+/* Estilos para cada item del carrusel */
+.carrusel-item {
+    display: flex;
+    flex-direction: column; /* Coloca la imagen encima del texto */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: flex-start; /* Alinea los elementos desde el inicio */
+    margin-bottom: 50px; /* Aumenta la separación entre los items */
+    padding-bottom: 15px;
+    margin-top: 30%; /* Baja un poco los items */
+}
+
+/* Estilos generales para las imágenes dentro de cada item del carrusel */
+.carrusel-imagen {
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    margin-bottom: 15px; /* Aumenta la separación entre la imagen y el texto */
+    width: 150px; /* Aumento el tamaño de las imágenes */
+    height: 150px; /* Ajusto la altura para que las imágenes sean más grandes */
+    object-fit: cover; /* Asegura que las imágenes mantengan su proporción sin distorsionarse */
+}
+
+/* Estilos específicos para cada imagen con un tamaño ajustable */
+.imagen-1 {
+    max-width: 90%; /* Limita el ancho máximo de la imagen 1, la hago más grande */
+    width: 150px; /* Aumento el tamaño de la imagen */
+}
+
+.imagen-2 {
+    max-width: 90%; /* Limita el ancho máximo de la imagen 2 */
+    width: 150px; /* Aumento el tamaño de la imagen */
+}
+
+.imagen-3 {
+    max-width: 90%; /* Limita el ancho máximo de la imagen 3 */
+    width: 150px; /* Aumento el tamaño de la imagen */
+}
+
+.imagen-4 {
+    max-width: 90%; /* Limita el ancho máximo de la imagen 4 */
+    width: 150px; /* Aumento el tamaño de la imagen */
+}
+
+/* Estilos para el texto dentro de cada item del carrusel */
+.carrusel-texto {
+    color: white; /* Texto en blanco */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: center; /* Centra el texto debajo de la imagen */
+    margin: 20px 0 0 0; /* Baja el texto agregando margen superior */
+    max-width: 400px; /* Limita el ancho del texto */
+}
+
+
+
+
+
+/* Asegúrate de que la posición del carrusel sea absoluta */
+.cuadro-morado:hover .carrusel {
+    animation: scroll 15s linear infinite; /* Hacer scroll infinito */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Cambiar este valor según la cantidad de imágenes */
+    }
+}
+/* Contenedor principal para la sección de Cursos */
+#cursos {
+    padding: 20px; /* Espacio interno */
+}
+
+/* Contenedor de videos en la sección de Cursos */
+#cursos .video-container {
+    width: 80%; /* Ajusta el tamaño del contenedor principal */
+    margin: 20px auto; /* Centra horizontalmente y añade espacio arriba y abajo */
+    box-sizing: border-box;
+    display: flex; /* Usa flexbox para alinear videos en filas */
+    flex-wrap: wrap; /* Permite que los videos se envuelvan en filas */
+    justify-content: center; /* Centra los videos dentro del contenedor */
+}
+
+/* Estilo de cada video en la sección de Cursos */
+#cursos .video-item {
+    width: 30%; /* Cada video ocupa el 30% del contenedor principal */
+    margin: 15px; /* Espacio uniforme entre los videos */
+    text-align: center; /* Centra el texto */
+    background-color: #6a0dad; /* Fondo morado para el cuadro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interno alrededor del video */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar efecto de elevación */
+    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom */
+}
+
+/* Efecto de zoom al pasar el cursor sobre el video */
+#cursos .video-item:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del video al 105% */
+}
+
+/* Estilo de las miniaturas de YouTube */
+#cursos .youtube-thumbnail {
+    width: 100%; /* Las miniaturas ocupan todo el ancho del contenedor */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilo para el título de cada curso */
+#cursos .video-description h3 {
+    color: white; /* Color del texto en blanco */
+    margin-top: 5px; /* Espacio entre la imagen y el título */
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    #cursos .video-container {
+        flex-direction: column; /* Cambia a una sola columna en pantallas pequeñas */
+        align-items: center; /* Centra los videos */
+    }
+
+    #cursos .video-item {
+        width: 100%; /* Los videos ocuparán todo el ancho en dispositivos pequeños */
+    }
+}
+/* Contenedor de texto */
+.text-container {
+    width: 80%; /* Reduce el ancho del contenedor para evitar que el texto llegue a los bordes */
+    margin: 20px auto; /* Centra el contenedor y agrega espacio superior e inferior */
+    text-align: justify; /* Justifica el texto para alinearlo uniformemente a ambos lados */
+    padding: 20px; /* Espaciado interno para evitar que el texto toque los bordes del contenedor */
+    line-height: 1.6; /* Aumenta el espacio entre líneas para mejorar la legibilidad */
+}
+
+/* Estilos para los títulos */
+.title, .subtitulo {
+    text-align: center; /* Centra los títulos */
+    font-size: 1.8rem; /* Ajusta el tamaño de la fuente para los títulos */
+    margin-bottom: 8px; /* Agrega espacio debajo de los títulos */
+}
+/* Contenedor de la frase */
+.frase {
+    width: 80%; /* Ancho ajustado para que el texto no toque los bordes */
+    margin: 50px auto; /* Centra el contenedor y agrega espacio superior e inferior */
+    padding: 20px; /* Espacio interno */
+    text-align: center; /* Centra el texto */
+    color: #8A2BE2; /* Tono morado del texto */
+    font-size: 32px; /* Tamaño del texto ajustado */
+    font-weight: bold; /* Negrita */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: rgba(106, 13, 173, 0.1); /* Fondo morado claro con transparencia */
+}
+
+/* Efecto de texto que aparece letra por letra */
+@keyframes escribirTexto {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%; /* Ancho al 100% para permitir saltos de línea */
+    }
+}
+
+.frase h2 {
+    overflow: hidden; /* Oculta el texto desbordado */
+    white-space: normal; /* Permite saltos de línea */
+    width: 0; /* Ancho inicial de 0 */
+    border-right: 2px solid #8A2BE2; /* Añade un cursor al final del texto */
+    display: inline-block;
+    animation: escribirTexto 6s steps(56, end) forwards; /* Controla la animación (56 pasos) */
+    font-size: 24px; /* Ajuste del tamaño de fuente */
+    max-width: 50%; /* Asegura que el texto no se pase del contenedor */
+    word-wrap: break-word; /* Permite que el texto se divida si es demasiado largo */
+    text-align: center; /* Centra el texto incluso cuando haya saltos de línea */
+}
+
+/* Activación de la animación al hacer scroll */
+.frase.scroll-active h2 {
+    animation: escribirTexto 6s steps(56, end) forwards; /* Duración ajustada a 56 pasos */
+}
+/* Estilo para los encabezados */
+h1, h2, h3 {
+    color: #6A0DAD; /* Color morado */
+    text-align: center; /* Centrando el texto */
+    margin: 20px 0; /* Espacio vertical alrededor de los encabezados */
+}
+
+/* Estilo para las tarjetas */
+.card {
+    background-color: #6A0DAD; /* Color de fondo morado para las tarjetas */
+    color: white; /* Color del texto en las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px 0; /* Espacio entre las tarjetas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+}
+/* Estilo para las tarjetas */
+.card {
+    background-color: #6A0DAD; /* Color de fondo morado para las tarjetas */
+    color: white; /* Color del texto en las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 10px auto; /* Espacio vertical y auto para centrar horizontalmente */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+    max-width: 90%; /* Ancho máximo de la tarjeta para que no toque los bordes */
+}
+
+/* Estilo para los encabezados de las tarjetas */
+.card h2 {
+    color: white; /* Color del texto blanco para los encabezados */
+    text-align: center; /* Centrando el texto */
+    margin: 10px 0; /* Espacio vertical alrededor de los encabezados */
+}
+
+/* Estilo para el texto de las tarjetas */
+.card p {
+    color: white; /* Asegura que el texto sea blanco */
+}
+/* Estilo para el encabezado específico */
+.title {
+    color: white; /* Color del texto blanco para el encabezado */
+    text-align: center; /* Centrando el texto */
+    margin: 20px 0; /* Espacio vertical alrededor del encabezado */
+}
+
+/* Estilo para los encabezados generales */
+h1, h2, h3 {
+    color: #6A0DAD; /* Color morado */
+    text-align: center; /* Centrando el texto */
+    margin: 20px 0; /* Espacio vertical alrededor de los encabezados */
+}
+/* Estilo específico para los encabezados h2 en .text-container */
+.text-container h2.title.situacion {
+    color: #6A0DAD; /* Color morado */
+    text-align: center; /* Centrando el texto */
+    font-size: 32px; /* Tamaño de fuente de 32 px */
+    margin: 20px 0; /* Espacio vertical alrededor del encabezado */
+}
+.info-box h2.recuadro {
+    color: white; /* Color del texto */
+    text-align: center; /* Centrando el texto */
+    text-shadow: 
+        -1px -1px 0 #000,  
+        -1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000; /* Stroke negro alrededor del texto */
+    margin: 20px 0; /* Espacio vertical alrededor del encabezado */
+}
+footer h3 {
+    color: white; /* Color del texto para los encabezados h3 */
+    text-align: left; /* Alineación del texto a la izquierda */
+    margin: 10px 0; /* Espacio vertical alrededor de los encabezados */
+}
+
+        h2 {
+            color: #4A148C; /* Color del encabezado */
+        }
+
+        button {
+            background-color: #6A0DAD; /* Color morado */
+            color: white; /* Texto blanco */
+            padding: 10px 20px; /* Espaciado */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondos */
+            cursor: pointer; /* Mano al pasar el cursor */
+            font-size: 16px; /* Tamaño de fuente */
+            margin: 5px 0; /* Espacio entre botones */
+        }
+        input[type="text"], textarea {
+            width: 20%; /* Ancho completo */
+            padding: 10px; /* Espaciado */
+            margin: 10px 0; /* Espacio vertical */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 5px; /* Bordes redondos */
+            font-size: 16px; /* Tamaño de fuente */
+        }
+
+        #resultado img {
+            width: 300px; /* Ajustar tamaño de los GIFs */
+            height: auto; /* Mantener proporción */
+            margin: 5px; /* Espacio entre imágenes */
+        }
+
+        .remove-gif-button {
+            background-color: #9c27b0; /* Color morado */
+            color: white; /* Texto blanco */
+            padding: 10px; /* Espaciado */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondos */
+            cursor: pointer; /* Mano al pasar el cursor */
+            font-size: 16px; /* Tamaño de fuente */
+            margin: 5px 0; /* Espacio entre botones */
+        }
+
+        .remove-gif-button:hover {
+            background-color: #7b1fa2; /* Color morado más oscuro al pasar el cursor */
+        }

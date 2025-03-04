@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interprete de lenguaje de señas</title>
+
+    <link rel="stylesheet" href="estilos/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/handtrackjs/dist/handtrack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="//code.tidio.co/syechovnoisnu1esenzndwfd77q2mf6m.js" async></script>
+    <!-- Agregar Socket.IO -->
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    // Puedes enviar y recibir eventos a través de 'socket'
+    socket.emit('mensaje', '¡Hola desde el cliente!');
+
+    socket.on('respuesta', (data) => {
+        console.log('Respuesta del servidor:', data);
+    });
+</script>
+</body>
+</html>
+
+<body>
+    <!-- Incluir Firebase SDK y configuración -->
+<script type="module">
+    // Importar las funciones que necesitas del SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+    import { getStorage, ref, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-storage.js";
+
+    // Configuración de Firebase de tu proyecto
+    const firebaseConfig = {
+        apiKey: "AIzaSyAmKbERgeDk679NwKOSYxDz6T_iaHqwVfk",
+        authDomain: "lenguaje-855d5.firebaseapp.com",
+        projectId: "lenguaje-855d5",
+        storageBucket: "lenguaje-855d5.appspot.com",
+        messagingSenderId: "627648249655",
+        appId: "1:627648249655:web:d44785fd44f8b95e6ae4b2"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    // Función para obtener la imagen correspondiente a la letra ingresada
+    async function getSignImage(letter) {
+        console.log("Entra")
+
+        const values = {
+            letter: letter
+        }
+
+        try {
+            const response = await fetch(`http://localhost:3080/letras/${letter}`, {
+                method: "POST",
+                mode: "cors"
+            })
+            const data = await response.json()
+
+            return data;
+        } catch {
+
+        }
+    }
+
+    // Función que se ejecuta al hacer clic en el botón Convertir
+    document.getElementById("convert-button").addEventListener("click", async function() {
+        const letter = document.getElementById("letter-input").value;
+
+        if (letter) {
+            // Obtener la URL de la imagen de Firebase Storage
+            const data = await getSignImage(letter);
+
+            var imageContainer = document.getElementById("image-sing-container");
+
+            // Eliminar la imagen anterior, si existe
+            while (imageContainer.firstChild) {
+                imageContainer.removeChild(imageContainer.firstChild);
+            }
+
+            // Crear una nueva imagen
+            const newImage = document.createElement("img");
+            newImage.src = data.enlace_imagen; // Establecer el nuevo src
+            newImage.alt = "Firma";
+
+            // Añadir la nueva imagen al contenedor
+            imageContainer.appendChild(newImage);
+
+        } else {
+            alert("Por favor, ingresa una letra.");
+        }
+    });
+
+    (async () => {
+        const response = await fetch("localhost:3080/", {
+            method: "GET",
+            mode: "no-cors"
+        })
+    })()
+</script>
+<div class="top-box">
+    <h1 class="title">SilentEcho</h1>
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-link active" onclick="openTab(event, 'home')">Inicio</button>
+                <button class="tab-link" onclick="openTab(event, 'about-us')">Acerca de nosotros</button>
+                <button class="tab-link" onclick="openTab(event, 'translate')">Traductor</button>
+                <button class="tab-link" onclick="openTab(event, 'cursos')">Cursos</button>
+                <button class="tab-link" onclick="openTab(event, 'app')">App</button>
+            </div>
+        </div>
+    </div>
+<div>
+    <div id="home" class="tab-content">
+        <div class="video-container">
+            <video controls>
+                <source src="Y2meta.app-¿La lengua de señas es universal_.mp4" type="video/mp4">
+            </video>
+            <div class="text-content">
+                <h3>Video ilustrativo de la realidad cultural de las personas sordomudas</h3>
+                <p>Agradecimientos al canal de CuriosaMente por prestar los derechos de autor para fines educativos.</p>
+                <p>
+                    Haz clic en el siguiente enlace para visitar el canal de YouTube:
+                    <a href="https://www.youtube.com/curiosamente" target="_blank">CuriosaMente</a>
+                </p>
+            </div>
+        </div>
+        <div class="text-container">
+            <h2 class="title situacion">Situación</h2>
+            <p>En Colombia, cerca de 459,772 personas viven con discapacidad auditiva, enfrentándose a barreras significativas en su comunicación diaria. Aunque existen intérpretes de lenguaje de señas, su disponibilidad es limitada, lo que dificulta la interacción en entornos laborales, educativos y sociales. Esta falta de comunicación efectiva no solo incrementa la discriminación, sino que también limita las oportunidades de inclusión y desarrollo personal y profesional de las personas sordomudas.</p>
+        </div>
+        <div class="text-container">
+            <h2 class="subtitulo">Aporte</h2>
+            <p>Estamos transformando la comunicación y derribando barreras para la comunidad sordomuda. Nuestra aplicación facilita la interacción diaria entre personas sordomudas y oyentes, creando un puente que promueve la inclusión y mejora la calidad de vida. Con esta herramienta, no solo damos voz a quienes la necesitan, sino que también sensibilizamos a la sociedad hacia una mayor equidad y respeto por la diversidad.</p>
+        </div>        
+        <div class="info-box">
+            <h2 class="recuadro">¿Necesitas más información?</h2>
+            <button class="comunicate" onclick="openTab(event, 'about-us')">Comunícate con nosotros</button>
+        </div>
+        <div class="frase">
+            <h2>"Rompiendo Barreras, Conectando Mundos: La app que transforma señas en palabras para una comunicación sin límites."</h2>
+        </div>
+</div>
+        <div id="about-us" class="tab-content" style="display:none;">
+            <div class="card" id="card1">
+                <h2>Misión</h2>
+                <img src="trofeo.png" alt="Trofeo">
+                <p>Ser la herramienta líder en comunicación inclusiva, facilitando la interacción entre personas sordomudas y oyentes a nivel global, promoviendo una sociedad más inclusiva y sin barreras de comunicación.</p>
+            </div>
+            <div class="card" id="card2">
+                <h2>Visión</h2>
+                <img src="lentes.png" alt="Gafas">
+                <p>Ser la herramienta líder en comunicación inclusiva, facilitando la interacción entre personas sordomudas y oyentes a nivel global, promoviendo una sociedad más inclusiva y sin barreras de comunicación.</p>
+            </div>
+            <div class="card" id="card3">
+                <h2>Objetivo</h2>
+                <img src="objetivo.png" alt="Objetivo">
+                <p>Creamos herramientas inclusivas para facilitar la comunicación entre sordomudos y oyentes. Nuestra app traduce en tiempo real el lenguaje de señas a voz y viceversa, con una interfaz sencilla. Buscamos eliminar barreras y promover la inclusión para mejorar la vida de personas con discapacidad auditiva.</p>
+            </div>
+            <div class="container">
+                <h1>Historia del proyecto</h1>
+                <div class="planeacion">
+                    <h2>Fase de Planificación (03/09/2024)</h2>
+                    <h3>1. Investigación de Mercado:</h3>
+                    <p>Iniciamos con una inmersión profunda en el mercado para captar las últimas tendencias y entender el panorama competitivo. Utilizamos encuestas y análisis para identificar oportunidades y amenazas, y perfilamos al público objetivo para ajustar nuestra propuesta a sus necesidades.</p>
+                    <h3>2. Definición de Objetivos y Alcance:</h3>
+                    <p>Establecimos objetivos claros y medibles para guiar el proyecto. Definimos el alcance y los límites para garantizar que cada fase se alinee con nuestras metas estratégicas.</p>
+                    <h3>3. Análisis de Requisitos del Cliente:</h3>
+                    <p>Recopilamos y analizamos detalladamente las necesidades y expectativas de nuestros usuarios finales. Usamos encuestas para entender sus preferencias y requerimientos, asegurándonos de incluir las funcionalidades clave en nuestro diseño.</p>
+                    <h3>4. Asignación de Recursos y Presupuestos:</h3>
+                    <p>Planificamos los recursos necesarios, desde personal hasta materiales, y elaboramos un presupuesto detallado. Definimos roles y responsabilidades para asegurar una ejecución eficiente y coordinada.</p>
+                    <h3>5. Elaboración de Cronograma Inicial:</h3>
+                    <p>Desarrollamos un cronograma preliminar que marca las fechas clave y los hitos del proyecto. Estimamos los tiempos de cada tarea para mantener el proyecto en curso y cumplir con los plazos establecidos.</p>
+                </div>
+            </div>
+            <h2>Equipo de trabajo y función</h2>
+            <div class="images">
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/juan-david-maldonado-castro-774629335/" target="_blank">
+                        <img src="https://i.pinimg.com/736x/b1/0f/dc/b10fdc712ccb894c3535acd99014ba29.jpg" alt="Maldonado">
+                    </a>
+                    <p class="nombre">Maldonado</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/perfil2" target="_blank">
+                        <img src="https://i.pinimg.com/736x/45/2f/76/452f76999e0961df3e7d28ac5bc16211.jpg" alt="Cesar">
+                    </a>
+                    <p class="nombre">Cesar</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/perfil3" target="_blank">
+                        <img src="https://i.pinimg.com/736x/1e/7d/bd/1e7dbdd683c9824012f9dd7826e748c2.jpg" alt="Andrea">
+                    </a>
+                    <p class="nombre">Andrea</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/perfil4" target="_blank">
+                        <img src="https://i.pinimg.com/736x/d5/1d/8b/d51d8b2ff28db324ed1be2766f793c43.jpg" alt="Nombre 4">
+                    </a>
+                    <p class="nombre">Camilo</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/perfil5" target="_blank">
+                        <img src="https://i.pinimg.com/736x/20/97/3c/20973ce744496171828b7955dd86d648.jpg" alt="Alejandra">
+                    </a>
+                    <p class="nombre">Alejandra</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/wendy-johana-esteban-cortes-676180336/" target="_blank">
+                        <img src="https://i.pinimg.com/736x/29/d4/37/29d437b93085611e5e5d121dd600151f.jpg" alt="Nombre 6">
+                    </a>
+                    <p class="nombre">Wendy</p>
+                </div>
+                <div class="image-container">
+                    <a href="https://www.linkedin.com/in/carlos-fernando-aragon-lopez-960b55330/" target="_blank">
+                        <img src="https://i.pinimg.com/736x/46/19/4a/46194a86dc8bd43c9df4673f34780b05.jpg" alt="Nombre 7">
+                    </a>
+                    <p class="nombre">Fernando</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="translate" class="tab-content" style="display:none;">
+    <h2>Traductor de letras a imágenes</h2>
+    <!-- Ejemplo de botones para cambiar de modo -->
+    <button onclick="showMode('write-mode')">Modo Escribir</button> 
+    <button onclick="showMode('voz-mode')">Modo Texto a Voz</button>
+    <button onclick="showMode('gif-mode')">Modo Buscar GIF</button>
+    <script>
+        function showMode(mode) {
+            // Oculta todos los modos
+            document.getElementById('write-mode').style.display = 'none';
+            document.getElementById('translate-mode').style.display = 'none';
+            document.getElementById('voz-mode').style.display = 'none';
+            document.getElementById('gif-mode').style.display = 'none';
+            
+            // Muestra el modo seleccionado
+            document.getElementById(mode).style.display = 'block';
+        }
+    </script>
+<!-- Modo Escribir -->
+<div id="write-mode">
+    <label for="letter-input">Ingresa una palabra:</label>
+    <input type="text" id="letter-input" maxlength="255" placeholder="Hola" onkeypress="handleKeyPress(event, 'convert-button')"/>
+    <button id="convert-button" onclick="convertToSignLanguage()">Convertir</button>
+    <div id="image-output">
+        <p>Aquí aparecerán las imágenes correspondientes a las letras de la palabra ingresada:</p>
+        <div id="image-sing-container"></div>
+    </div>
+</div>
+
+    <!-- Modo Traducir (encender cámara y grabar) -->
+    <div id="translate-mode" style="display:none;">
+        <p>Activa tu cámara y empieza a grabar para traducir.</p>
+        <video id="camera-feed" autoplay></video>
+        <div id="camera-controls">
+            <button id="start-recording" class="rounded-button">Grabar</button>
+            <button id="stop-recording" class="rounded-button" disabled>Detener</button>
+        </div>
+    </div>
+    <!-- Modo Texto a Voz -->
+    <div id="voz-mode" style="display:none;">
+        <label for="voice-text-input">Escribe el texto que quieres convertir a voz:</label>
+        <textarea id="voice-text-input" rows="5" cols="50" placeholder="Escribe aquí..." onkeypress="handleKeyPress(event, 'text-to-voice-button')"></textarea>
+        <button id="text-to-voice-button" onclick="convertirATextoAVoz()">Convertir a voz</button>
+    </div>
+    <!-- Modo Buscar GIF -->
+    <div id="gif-mode" style="display: none;">
+        <h1>Busca tu GIF</h1>
+        <input type="text" id="palabra" placeholder="Escribe una palabra..." onkeypress="handleKeyPress(event, 'search-button')">
+        <button id="search-button" onclick="buscarGif()">Buscar</button>
+        <div id="resultado">
+            <p>Aquí aparecerán los GIFs correspondientes a la palabra ingresada.</p>
+        </div>
+    </div>
+</div>
+<script>
+    // Función para manejar la tecla Enter
+    function handleKeyPress(event, buttonId) {
+        if (event.key === 'Enter') {
+            document.getElementById(buttonId).click(); // Simula un clic en el botón correspondiente
+        }
+    }
+    // Función para buscar GIFs en Giphy
+    async function buscarGif() {
+        const palabra = document.getElementById('palabra').value;
+        const apiKey = 'TU_API_KEY_DE_GIPHY'; // Reemplaza con tu API Key de Giphy
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${palabra}&limit=10`;
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            mostrarGifs(data.data);
+        } catch (error) {
+            console.error("Error al buscar GIFs:", error);
+        }
+    }
+    // Función para mostrar los GIFs
+    function mostrarGifs(gifs) {
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.innerHTML = ''; // Limpiar resultados anteriores
+        gifs.forEach(gif => {
+            const img = document.createElement('img');
+            img.src = gif.images.fixed_height.url; // URL del GIF
+            resultadoDiv.appendChild(img);
+        });
+    }
+    // Función para convertir texto a voz
+    function convertirATextoAVoz() {
+        const texto = document.getElementById('voice-text-input').value;
+        const utterance = new SpeechSynthesisUtterance(texto);
+        window.speechSynthesis.speak(utterance);
+    }
+</script>
+    <div id="cursos" class="tab-content" style="display:none">
+        <div class="video-container">
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=1x1WwNOSvP4" target="_blank">
+                    <img src="https://img.youtube.com/vi/1x1WwNOSvP4/0.jpg" alt="Curso 1: Introducción al Lenguaje de Señas" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 1: Introducción al Lenguaje de Señas</h3>
+                </div>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=-8e3FaA-Rak&list=PLI7rDimYXOdhyty-lEXsxQgiLfYKnnqmY" target="_blank">
+                    <img src="https://img.youtube.com/vi/-8e3FaA-Rak/0.jpg" alt="Curso 1: Introducción al Lenguaje de Señas" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 1: Introducción al Lenguaje de Señas</h3>
+                </div>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=cYsixd_AYGc" target="_blank">
+                    <img src="https://img.youtube.com/vi/cYsixd_AYGc/0.jpg" alt="Curso 2: Aprendiendo Lenguaje de Señas" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 2: Aprendiendo Lenguaje de Señas</h3>
+                </div>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=mWWsrgrmFBY" target="_blank">
+                    <img src="https://img.youtube.com/vi/mWWsrgrmFBY/0.jpg" alt="Curso 3: Lenguaje de Señas para Principiantes" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 3: Lenguaje de Señas para Principiantes</h3>
+                </div>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=gXW4WVYt1IA" target="_blank">
+                    <img src="https://img.youtube.com/vi/gXW4WVYt1IA/0.jpg" alt="Curso 4: Práctica del Lenguaje de Señas" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 4: Práctica del Lenguaje de Señas</h3>
+                </div>
+            </div>
+            <div class="video-item">
+                <a href="https://www.youtube.com/watch?v=G1cSYOWSGZk&list=PLWFccwiU5MiBOha_S9iD6ooz2RkC_s84x" target="_blank">
+                    <img src="https://img.youtube.com/vi/G1cSYOWSGZk/0.jpg" alt="Curso 5: Avanzando en Lenguaje de Señas" class="youtube-thumbnail">
+                </a>
+                <div class="video-description">
+                    <h3>Curso 5: Avanzando en Lenguaje de Señas</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app" class="tab-content" style="display:none">
+        <img src="qrcode_129319776_1893d19722f4487c6ce25242f905c9e9.png" alt="imagen.qr">
+        <p>Gracias por usar nuestro sitio web. Queremos hacerte mucho más fácil llevarnos a todos lados, por lo tanto, te ofrecemos usar nuestro programa en tu dispositivo móvil. Esperamos que tu experiencia sea placentera. Estamos abiertos a cualquier solicitud de ustedes.</p>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Información y descripción de la app -->
+            <div class="footer-section">
+                <h4>SilentEcho</h4>
+                <p>SilentEcho es una aplicación inclusiva que permite la comunicación entre personas sordomudas y oyentes mediante conversión de lenguaje de señas y voz en tiempo real.</p>
+                <p>&copy; 2024 SilentEcho. Todos los derechos reservados.</p>
+            </div>
+            <!-- Servicios de la app -->
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <p><a href="#">Traducción de Lenguaje de Señas</a></p>
+                <p><a href="#">Conversión de Texto a Voz</a></p>
+                <p><a href="#">Accesibilidad Inclusiva</a></p>
+            </div>
+            <!-- Redes Sociales -->
+            <div class="footer-section social-app">
+                <h4>Conéctate con nosotros</h4>
+                <div class="social">
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon">
+                        <img src="facebook imagen.webp" alt="Facebook" width="50" height="50">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" class="social-icon">
+                        <img src="ximagen.png" alt="Twitter" width="50" height="50">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon">
+                        <img src="instagram.png" alt="Instagram" width="50" height="50">
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://chat.whatsapp.com/CkvgU30Z2QH6t4MaCLR8qS" target="_blank" class="social-icon">
+                        <img src="whasapt.webp" alt="WhatsApp" width="50" height="50">
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Newsletter -->
+            <div class="footer-section newsletter">
+                <h4>Únete a nuestro boletín</h4>
+                <input type="email" placeholder="Tu correo electrónico">
+                <button>Suscribirse</button>
+            </div>
+        </div>
+        <!-- Línea divisoria -->
+        <div class="footer-line"></div>
+        <!-- Información de contacto inferior -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 SilentEcho</p>
+            <div class="contact-info">
+                <p>Colombia</p>
+                <p><a href="mailto:softwaretrabajo246@gmail.com">softwaretrabajo246@gmail.com</a></p>
+                <p>(123) 456-7890</p>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts/index.js"></script>
+    <script src="./Firebase.js"></script>
+</body>
+</html>
